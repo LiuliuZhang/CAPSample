@@ -1,0 +1,11 @@
+{
+  "name": "@capire/orders",
+  "version": "1.0.0",
+  "dependencies": {
+    "@capire/bookshop": "../bookshop",
+    "@capire/products": "../products",
+    "@capire/common": "1.0.0",
+    "@sap/cds": ">=3.33.1"
+
+  }
+}
