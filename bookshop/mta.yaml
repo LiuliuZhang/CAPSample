@@ -1,0 +1,90 @@
+## Generated mta.yaml based on template version 0.2.0
+## appName = bookshop
+## language=nodejs; multiTenant=false
+## approuter=
+_schema-version: '3.1'
+ID: capire.bookshop
+version: 1.0.0
+description: "A simple self-contained bookshop service."
+parameters:
+  enable-parallel-deployments: true
+  
+  
+build-parameters:
+  before-all:
+   - builder: custom
+     commands:
+      - npm install
+      - npx cds build
+
+modules:
+ # --------------------- SERVER MODULE ------------------------
+ - name: bookshop-srv
+ # ------------------------------------------------------------
+   type: nodejs
+   path: gen/srv
+   properties:
+     EXIT: 1  # required by deploy.js task to terminate 
+   requires:
+    # Resources extracted from CAP configuration
+    - name: bookshop-hdi
+    - name: bookshop-uaa
+   provides:
+    - name: srv-binding      # required by consumers of CAP services (e.g. approuter)
+      properties:
+        srv-url: ${default-url}
+
+ # -------------------- SIDECAR MODULE ------------------------
+ - name: bookshop-db
+ # ------------------------------------------------------------
+   type: hdb
+   path: gen/db  
+   parameters:
+     app-name: bookshop-db  
+   requires:
+    # 'hana' and 'xsuaa' resources extracted from CAP configuration
+    - name: bookshop-hdi
+    - name: bookshop-uaa
+
+  ##############    APP   #########################
+ - name: bookshop-app
+   type: nodejs
+   path: gen/app
+   parameters:
+      memory: 256M
+   build-parameters:
+     requires:
+       - name: bookshop-srv
+   requires:
+    - name: bookshop-uaa
+    - name: srv-binding
+      group: destinations
+      properties:
+         forwardAuthToken: true
+         name: srv-binding
+         url: ~{srv-url}
+resources:
+ # services extracted from CAP configuration
+ # 'service-plan' can be configured via 'cds.requires.<name>.vcap.plan'
+# ------------------------------------------------------------
+ - name: bookshop-hdi
+# ------------------------------------------------------------
+   type: com.sap.xs.hdi-container
+   parameters:
+     service: hanatrial  # or 'hanatrial' on trial landscapes
+     service-plan: hdi-shared
+   properties:
+     hdi-service-name: ${service-name}
+
+ - name: bookshop-uaa
+    
+   type: org.cloudfoundry.managed-service
+   parameters:
+    ##### Path to xs-security.json to add roles and scopes   ####    
+     path: ./xs-security.json
+     service: xsuaa
+     service-plan: application  
+     config:
+       xsappname: bookshop-${space}    #  name + space dependency
+       tenant-mode: dedicated
+

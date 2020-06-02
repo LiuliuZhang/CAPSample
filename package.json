@@ -8,11 +8,12 @@
     "@capire/bookshop": "file:bookshop",
     "@capire/common": "file:common",
     "@capire/fiori": "file:fiori",
+    "@capire/officesupplies": "file:officesupplies",
     "@capire/orders": "file:orders",
+    "@capire/products": "file:products",
     "@capire/reviews": "file:reviews",
     "@capire/tests": "file:test",
-    "@capire/products": "file:products",
-    "@capire/officesupplies": "file:officesupplies"
+    "@sap/cds-odata-v2-adapter-proxy": "^1.4.33"
   },
   "devDependencies": {
     "chai": "^4.2.0",

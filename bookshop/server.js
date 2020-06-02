@@ -22,28 +22,18 @@ const cds = require('@sap/cds')
 module.exports = async (options) => {
 
     const express = require('express')
-    const app = cds.app = options.app || express()
+    const odatav2proxy = require("@sap/cds-odata-v2-adapter-proxy")
+//    const app = cds.app = options.app || express()
     cds.emit('bootstrap',app) // hook for project-local server.js
 
-    // mount static resources and common middlewares...
-    app.use(function (req, res, next) {
-        console.log("This is first load")
-        next()
-      })
     app.use (express.static (cds.env.folders.app))  //> defaults to ./app
     app.get ('/',(_,res) => res.send (index.html))  //> if none in ./app
     app.use ('/favicon.ico', express.static (__dirname+'/etc/favicon.ico', {maxAge:'14d'}))
     app.use (options.logger||logger)  //> basic request logging
 
-    app.use(function (req, res, next) {
-        console.log("Before load")
-        next()
-      })
     // load specified models or all in project
     cds.on('loaded',()=>console.log("Model Loaded"))
     const model = cds.model = await cds.load (options.from)
-
-    
 
     // bootstrap --in-memory db if requested
     if (options.in_memory) cds.db = await cds.deploy (model,options)
@@ -54,12 +44,12 @@ module.exports = async (options) => {
     // construct and mount modelled services
     cds.on('serving',()=>console.log("Service Served"))
     const services = await cds.serve (options) .from (model) .in (app)
-
-    
+    const { PORT=4004 } = process.env
+    app.use(odatav2proxy({ port: PORT }))
     cds.emit ('served', services)
 
     // start http server
-    return app.listen (options.port || process.env.PORT || 4004)
+    return app.listen (PORT)
 
 }
 
@@ -67,7 +57,7 @@ module.exports = async (options) => {
 // -------------------------------------------------------------------------
 // helpers...
 
-const {index} = require ('../node_modules/@sap/cds/lib/utils/app/index_html')
+//const {index} = require ('../node_modules/@sap/cds/lib/utils/app/index_html')
 const DEBUG = cds.debug('server')
 const logger = (req,_,next) => { /* eslint-disable no-console */
     console.log (req.method, decodeURI(req.url))

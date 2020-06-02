@@ -1,3 +1,4 @@
+using from './zcomm';
 using { Currency, managed, cuid, sap } from '@sap/cds/common';
 //using { sap.capire.products.Products } from '@capire/products';
 namespace sap.capire.bookshop;

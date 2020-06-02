@@ -1,4 +1,10 @@
-// Incorporate pre-build extensions from...
-using from '@capire/common';
+/*
+  This model controls what gets served to Fiori frontends...
+*/
 
-//using teched.flight.trip as flight from '@capire/common';
+using from './admin/fiori-service';
+using from './browse/fiori-service';
+using from './orders/fiori-service';
+using from './common';
+
+//using from '@capire/common';
