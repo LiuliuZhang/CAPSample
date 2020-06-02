@@ -23,11 +23,11 @@ module.exports = async (options) => {
 
     const express = require('express')
     const odatav2proxy = require("@sap/cds-odata-v2-adapter-proxy")
-//    const app = cds.app = options.app || express()
+    const app = cds.app = options.app || express()
     cds.emit('bootstrap',app) // hook for project-local server.js
 
     app.use (express.static (cds.env.folders.app))  //> defaults to ./app
-    app.get ('/',(_,res) => res.send (index.html))  //> if none in ./app
+//    app.get ('/',(_,res) => res.send (index.html))  //> if none in ./app
     app.use ('/favicon.ico', express.static (__dirname+'/etc/favicon.ico', {maxAge:'14d'}))
     app.use (options.logger||logger)  //> basic request logging
 
