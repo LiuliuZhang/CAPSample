@@ -8,10 +8,16 @@
     "@sap/hana-client": "^2.4.196",
     "express": "^4.17.1"
   },
+  "devDependencies": {
+    "jest": "*",
+    "supertest": "^4.0.2"
+  },
   "scripts": {
     "genres": "cds serve test/genres.cds",
     "start": "cds run",
-    "watch": "cds watch"
+    "watch": "cds watch",
+    "test": "jest",
+    "debugger": "node --inspect-brk ./node_modules/jest/bin/jest --runInBand --no-cache --no-watchman"
   },
   "cds": {
     "requires": {

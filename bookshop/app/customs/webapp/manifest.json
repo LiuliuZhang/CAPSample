@@ -14,7 +14,7 @@
 		},
 		"dataSources": {
 			"mainService": {
-				"uri": "/v2/browse/",
+				"uri": "/v2/admin/",
 				"type": "OData",
 				"settings": {
 					"localUri": "localService/metadata.xml"

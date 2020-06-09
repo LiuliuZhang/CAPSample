@@ -43,7 +43,25 @@
       "skipFiles": [
         "<node_internals>/**"
       ]
-    }
+    },
+    {
+      "name": "JEST-bookshop",
+      "cwd": "${workspaceFolder}/bookshop",
+      "type": "node",
+      "request": "launch",
+      "protocol": "inspector",
+      //"program": "${workspaceFolder}/bookshop/node_modules/jest/bin/jest",
+      "stopOnEntry": false,
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceFolder}/bookshop/node_modules/jest/bin/jest",
+        "--runInBand"
+      ],
+      "trace": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229
+  }
   ],
   "inputs": [
     {
@@ -60,3 +78,28 @@
     }
   ]
 }
+
+
+// {
+//   "version": "0.2.0",
+//   "configurations": [
+//       {
+//           "name": "bookshop",
+//           "cwd": "${workspaceFolder}/bookshop",
+//           "type": "node",
+//           "request": "launch",
+//           "protocol": "inspector",
+//           //"program": "${workspaceFolder}/bookshop/node_modules/jest/bin/jest",
+//           "stopOnEntry": false,
+//           "runtimeArgs": [
+//             "--inspect-brk",
+//             "${workspaceFolder}/bookshop/node_modules/jest/bin/jest",
+//             "--runInBand"
+//           ],
+//           "trace": true,
+//           "console": "integratedTerminal",
+//           "internalConsoleOptions": "neverOpen",
+//           "port": 9229
+//       }
+//   ]
+// }

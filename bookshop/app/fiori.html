@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,12 +11,32 @@
 	<script>
 		window["sap-ushell-config"] = {
 			defaultRenderer: "fiori2",
+			renderers: {
+				fiori2: {
+					componentData: {
+						config: {
+							enableSearch: false,
+							enableNotificationsUI: true
+						}
+					}
+				}
+			},
+			services: {
+				Notifications: {
+					config:{
+						enabled: true,
+						serviceUrl: 'https://ldciwmt.wdf.sap.corp:44300/sap/opu/odata4/iwngw/notification/default/iwngw/notification_srv/0001',
+						webSocketUrl: "/sap/bc/apc/iwngw/notification_push_apc",
+						enableNotificationsPreview:true
+					}
+				}
+			},
 			applications: {
 				"browse-books": {
 					title: "Browse Books",
 					description: "... testing FE v42",
 					additionalInformation: "SAPUI5.Component=bookshop",
-					applicationType : "URL",
+					applicationType: "URL",
 					url: "/browse/webapp",
 					navigationMode: "embedded"
 				},
@@ -23,7 +44,7 @@
 					title: "Manage Books",
 					description: "... testing FE v42",
 					additionalInformation: "SAPUI5.Component=admin",
-					applicationType : "URL",
+					applicationType: "URL",
 					url: "/admin/webapp",
 					navigationMode: "embedded"
 				},
@@ -31,7 +52,7 @@
 					title: "Order Books",
 					description: "... testing FE v42",
 					additionalInformation: "SAPUI5.Component=orders",
-					applicationType : "URL",
+					applicationType: "URL",
 					url: "/orders/webapp",
 					navigationMode: "embedded"
 				},
@@ -39,7 +60,7 @@
 					title: "Customs Books",
 					description: "... testing FE v42",
 					additionalInformation: "SAPUI5.Component=customs",
-					applicationType : "URL",
+					applicationType: "URL",
 					url: "/customs/webapp",
 					navigationMode: "embedded"
 				}
@@ -49,15 +70,14 @@
 
 	<script src="https://sapui5.hana.ondemand.com/test-resources/sap/ushell/bootstrap/sandbox.js"></script>
 	<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
-    	data-sap-ui-libs="sap.m, sap.ushell, sap.collaboration, sap.ui.layout"
-    	data-sap-ui-compatVersion="edge"
-    	data-sap-ui-theme="sap_fiori_3"
-    	data-sap-ui-frameOptions="allow"
-	></script>
+		data-sap-ui-libs="sap.m, sap.ushell, sap.collaboration, sap.ui.layout" data-sap-ui-compatVersion="edge"
+		data-sap-ui-theme="sap_fiori_3" data-sap-ui-frameOptions="allow"></script>
 	<script>
-		sap.ui.getCore().attachInit(()=> sap.ushell.Container.createRenderer().placeAt("content"))
+		sap.ui.getCore().attachInit(() => sap.ushell.Container.createRenderer().placeAt("content"))
 	</script>
 
 </head>
+
 <body class="sapUiBody" id="content"></body>
+
 </html>

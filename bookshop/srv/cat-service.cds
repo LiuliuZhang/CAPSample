@@ -5,7 +5,7 @@ service CatalogService @(path:'/browse')  {
   @readonly entity Books as SELECT from my.Books {*} excluding { createdBy, modifiedBy };
 
   @requires_: 'authenticated-user'
-  action submitOrder (book : Books.ID, amount: Integer);
+  action submitOrder (book : Books.ID, amount: Integer) returns String;
 
   //@requires_: 'authenticated-user'
   //@insertonly 

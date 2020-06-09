@@ -1,5 +1,5 @@
 {
-  "xsappname": "bookshop",
+  "xsappname": "bookshop-dev",
   "tenant-mode": "dedicated",
   "scopes": [
     {

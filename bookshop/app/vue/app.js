@@ -1,7 +1,7 @@
 /* global Vue axios */ //> from vue.html
 const $ = sel => document.querySelector(sel)
 const GET = (url) => axios.get('/browse' + url)
-const POST = (cmd, data) => axios.post('/browse' + cmd, data)
+const POST = (cmd, data, header) => axios.post('/browse' + cmd, data, header)
 
 const books = new Vue({
 
@@ -33,7 +33,7 @@ const books = new Vue({
         submitOrder() {
             event.preventDefault()
             const { book, order } = books, amount = parseInt(order.amount) || 1
-            POST(`/submitOrder`, { amount, book: book.ID })
+            POST(`/submitOrder`, { amount, book: book.ID }, {headers: {'token':'test'}})
                 .then(() => books.order = { amount, succeeded: `Successfully orderd ${amount} item(s).` })
                 .catch(e => books.order = { amount, failed: e.response.data.error.message })
             GET(`/Books/${book.ID}/stock/$value`).then(res => book.stock = res.data)

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1591670838520" clover="3.2.0">
+  <project timestamp="1591670838520" name="All files">
+    <metrics statements="49" coveredstatements="20" conditionals="12" coveredconditionals="1" methods="23" coveredmethods="5" elements="84" coveredelements="26" complexity="0" loc="49" ncloc="49" packages="1" files="3" classes="3"/>
+    <file name="admin-service.js" path="C:\Zhangll\Zhangll\code\UI5_Test\CAP\Nutshell\bookshop\samples\bookshop\srv\admin-service.js">
+      <metrics statements="13" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="1"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="13" count="0" type="stmt"/>
+      <line num="14" count="0" type="stmt"/>
+      <line num="15" count="0" type="stmt"/>
+      <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="28" count="0" type="stmt"/>
+      <line num="30" count="0" type="stmt"/>
+      <line num="34" count="0" type="stmt"/>
+    </file>
+    <file name="cat-service.js" path="C:\Zhangll\Zhangll\code\UI5_Test\CAP\Nutshell\bookshop\samples\bookshop\srv\cat-service.js">
+      <metrics statements="27" coveredstatements="10" conditionals="8" coveredconditionals="1" methods="10" coveredmethods="3"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="5" count="2" type="stmt"/>
+      <line num="9" count="2" type="stmt"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="12" count="0" type="stmt"/>
+      <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="16" count="0" type="stmt"/>
+      <line num="19" count="2" type="stmt"/>
+      <line num="22" count="2" type="stmt"/>
+      <line num="23" count="5" type="cond" truecount="1" falsecount="1"/>
+      <line num="27" count="2" type="stmt"/>
+      <line num="29" count="0" type="stmt"/>
+      <line num="30" count="0" type="stmt"/>
+      <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="32" count="0" type="stmt"/>
+      <line num="33" count="0" type="stmt"/>
+      <line num="36" count="0" type="stmt"/>
+      <line num="37" count="0" type="stmt"/>
+      <line num="40" count="0" type="stmt"/>
+      <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="42" count="0" type="stmt"/>
+      <line num="48" count="2" type="stmt"/>
+      <line num="49" count="0" type="stmt"/>
+      <line num="50" count="0" type="stmt"/>
+    </file>
+    <file name="orders-service.js" path="C:\Zhangll\Zhangll\code\UI5_Test\CAP\Nutshell\bookshop\samples\bookshop\srv\orders-service.js">
+      <metrics statements="9" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="1"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="0" type="stmt"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="14" count="0" type="stmt"/>
+      <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
+    </file>
+  </project>
+</coverage>

@@ -27,7 +27,7 @@ module.exports = async (options) => {
     cds.emit('bootstrap',app) // hook for project-local server.js
 
     app.use (express.static (cds.env.folders.app))  //> defaults to ./app
-//    app.get ('/',(_,res) => res.send (index.html))  //> if none in ./app
+    app.get ('/',(_,res) => res.send (index.html))  //> if none in ./app
     app.use ('/favicon.ico', express.static (__dirname+'/etc/favicon.ico', {maxAge:'14d'}))
     app.use (options.logger||logger)  //> basic request logging
 
@@ -57,7 +57,7 @@ module.exports = async (options) => {
 // -------------------------------------------------------------------------
 // helpers...
 
-//const {index} = require ('../node_modules/@sap/cds/lib/utils/app/index_html')
+const {index} = require ('../node_modules/@sap/cds/lib/utils/app/index_html')
 const DEBUG = cds.debug('server')
 const logger = (req,_,next) => { /* eslint-disable no-console */
     console.log (req.method, decodeURI(req.url))
