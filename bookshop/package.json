@@ -6,7 +6,7 @@
     "@sap/cds": ">=3.33.1",
     "@sap/cds-odata-v2-adapter-proxy": "^1.4.33",
     "@sap/hana-client": "^2.4.196",
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   },
   "devDependencies": {
     "jest": "*",
